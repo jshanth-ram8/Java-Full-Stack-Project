@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Admin dashboard | Ambulance Booking</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar" id="topbar"></header>
+<main class="wrap">
+  <h1 style="font-size:2.2rem">Admin dashboard</h1>
+  <p class="muted" id="summary"></p>
+  <div id="msg" role="status" aria-live="polite"></div>
+
+  <div class="tabs" role="tablist">
+    <button type="button" role="tab" data-tab="bookings" aria-selected="true">Bookings</button>
+    <button type="button" role="tab" data-tab="ambulances" aria-selected="false">Ambulances</button>
+    <button type="button" role="tab" data-tab="hospitals" aria-selected="false">Hospitals</button>
+    <button type="button" role="tab" data-tab="people" aria-selected="false">Users and drivers</button>
+  </div>
+
+  <section class="tab-panel" id="tab-bookings">
+    <div class="table-wrap"><table>
+      <thead><tr><th>#</th><th>Time</th><th>Patient</th><th>Booked by</th><th>Pickup</th><th>Hospital</th><th>Ambulance</th><th>Status</th></tr></thead>
+      <tbody id="bookings-body"></tbody>
+    </table></div>
+  </section>
+
+  <section class="tab-panel" id="tab-ambulances" hidden>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Vehicle</th><th>Type</th><th>Status</th><th>Driver</th><th></th></tr></thead>
+      <tbody id="ambulances-body"></tbody>
+    </table></div>
+    <div class="panel">
+      <h3>Add an ambulance</h3>
+      <form id="form-ambulance" class="form-grid">
+        <div class="field"><label for="vehicleNumber">Vehicle number</label><input id="vehicleNumber" placeholder="TS09EA1234" required></div>
+        <div class="field"><label for="ambType">Type</label><select id="ambType"><option>Basic</option><option>ICU</option></select></div>
+        <div class="field"><label for="ambDriver">Driver (optional)</label><select id="ambDriver"></select></div>
+        <button class="btn" type="submit">Add ambulance</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="tab-panel" id="tab-hospitals" hidden>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Name</th><th>Address</th><th>Phone</th><th></th></tr></thead>
+      <tbody id="hospitals-body"></tbody>
+    </table></div>
+    <div class="panel">
+      <h3>Add a hospital</h3>
+      <form id="form-hospital" class="form-grid">
+        <div class="field"><label for="hosName">Name</label><input id="hosName" required></div>
+        <div class="field"><label for="hosAddress">Address</label><input id="hosAddress" required></div>
+        <div class="field"><label for="hosPhone">Phone</label><input id="hosPhone" required></div>
+        <button class="btn" type="submit">Add hospital</button>
+      </form>
+    </div>
+  </section>
+
+  <section class="tab-panel" id="tab-people" hidden>
+    <div class="table-wrap"><table>
+      <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Role</th><th></th></tr></thead>
+      <tbody id="people-body"></tbody>
+    </table></div>
+    <div class="panel">
+      <h3>Add a driver</h3>
+      <form id="form-driver" class="form-grid">
+        <div class="field"><label for="drvName">Full name</label><input id="drvName" required></div>
+        <div class="field"><label for="drvEmail">Email</label><input id="drvEmail" type="email" required></div>
+        <div class="field"><label for="drvPhone">Phone (10 digits)</label><input id="drvPhone" maxlength="10" required></div>
+        <div class="field"><label for="drvPassword">Password</label><input id="drvPassword" type="password" minlength="6" required></div>
+        <button class="btn" type="submit">Add driver</button>
+      </form>
+    </div>
+  </section>
+</main>
+<script src="js/api.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

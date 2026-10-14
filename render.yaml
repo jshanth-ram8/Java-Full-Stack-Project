@@ -1,0 +1,23 @@
+# Optional: deploy with Render Blueprints. You can also create a Web Service by hand
+# (Runtime = Docker) and add these environment variables in the dashboard.
+#
+# Remove the SPRING_PROFILES_ACTIVE entry to run on the built-in SQLite file instead.
+# SQLite on Render's free plan is wiped on every deploy/restart, so use MySQL for data you want to keep.
+services:
+  - type: web
+    name: ambulance-system
+    runtime: docker
+    plan: free
+    envVars:
+      - key: SPRING_PROFILES_ACTIVE
+        value: mysql
+      - key: DB_URL
+        sync: false
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false

@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ambulance Booking</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar" id="topbar"></header>
+<main>
+  <section class="wrap hero">
+    <div>
+      <h1>Book an ambulance, then follow the trip to the hospital.</h1>
+      <p class="lead">Enter where the patient is and which hospital to go to. A free ambulance is assigned straight away, and you see its driver, phone number and every step of the trip.</p>
+      <div class="actions">
+        <a class="btn btn-red btn-large" id="cta" href="book.html">Book an ambulance</a>
+        <a class="btn btn-ghost btn-large" id="cta2" href="login.html">Log in</a>
+      </div>
+      <p class="danger-note">If the patient is in immediate danger, call 108 or 112 first.</p>
+    </div>
+    <ol class="flow" aria-label="How a trip progresses">
+      <li><strong>Booking confirmed</strong><span class="muted">An ambulance is assigned to you.</span></li>
+      <li><strong>Ambulance dispatched</strong><span class="muted">The driver is heading to the pickup address.</span></li>
+      <li><strong>Patient picked up</strong><span class="muted">On the way to the hospital.</span></li>
+      <li><strong>Trip completed</strong><span class="muted">Arrived. The ambulance is free for the next call.</span></li>
+    </ol>
+  </section>
+
+  <section class="wrap roles">
+    <div><h3>Patients and families</h3><p class="muted">Register, book, and watch the status change as the ambulance moves.</p></div>
+    <div><h3>Ambulance drivers</h3><p class="muted">See assigned trips, open the pickup on a map, update the status, and set your availability.</p></div>
+    <div><h3>Administrators</h3><p class="muted">Manage ambulances, drivers, hospitals and every booking in one place.</p></div>
+  </section>
+</main>
+<footer class="wrap footer">In an emergency, call 108 or 112.</footer>
+
+<script src="js/api.js"></script>
+<script>
+(async () => {
+  const user = await loadUser();
+  renderNav(user);
+  if (user) {
+    const cta = document.getElementById('cta');
+    cta.href = HOME[user.role];
+    cta.textContent = user.role === 'USER' ? 'Book an ambulance' : 'Open your dashboard';
+    document.getElementById('cta2').hidden = true;
+  }
+})();
+</script>
+</body>
+</html>

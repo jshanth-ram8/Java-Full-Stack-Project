@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Register | Ambulance Booking</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar" id="topbar"></header>
+<main class="wrap">
+  <div class="panel narrow">
+    <h1 style="font-size:2rem">Create an account</h1>
+    <div id="msg" role="status" aria-live="polite"></div>
+    <form id="form" novalidate>
+      <div class="field"><label for="fullName">Full name</label><input id="fullName" autocomplete="name" required></div>
+      <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="phone">Phone number</label><input id="phone" type="tel" inputmode="numeric" maxlength="10" autocomplete="tel" required>
+        <div class="hint">10 digits. The driver will call this number.</div></div>
+      <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="new-password" minlength="6" required>
+        <div class="hint">At least 6 characters.</div></div>
+      <button class="btn btn-red" style="width:100%" type="submit" id="submit">Create account</button>
+    </form>
+    <p class="muted" style="margin-top:16px">Already registered? <a href="login.html">Log in</a></p>
+  </div>
+</main>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script>initRegister();</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book an ambulance</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar" id="topbar"></header>
+<main class="wrap">
+  <h1 style="font-size:2.2rem">Book an ambulance</h1>
+  <p class="danger-note">If the patient is in immediate danger, call 108 or 112 now. Then book here to track the trip.</p>
+  <div class="panel" style="margin-top:20px">
+    <div id="msg" role="status" aria-live="polite"></div>
+    <form id="form" novalidate>
+      <div class="field"><label for="patientName">Patient name</label><input id="patientName" required></div>
+      <div class="field">
+        <label for="pickupAddress">Pickup address</label>
+        <textarea id="pickupAddress" required placeholder="House number, street, area, landmark"></textarea>
+        <button class="btn btn-ghost btn-small" type="button" id="locate" style="margin-top:8px">Add my current location</button>
+      </div>
+      <div class="field"><label for="hospital">Hospital to go to</label><select id="hospital" required><option value="">Loading hospitals...</option></select></div>
+      <div class="field"><label for="emergencyDetails">What happened? (optional)</label>
+        <textarea id="emergencyDetails" placeholder="For example: chest pain, accident, difficulty breathing"></textarea></div>
+      <button class="btn btn-red btn-large" type="submit" id="submit">Book ambulance now</button>
+    </form>
+  </div>
+</main>
+<script src="js/api.js"></script>
+<script src="js/book.js"></script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in | Ambulance Booking</title>
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar" id="topbar"></header>
+<main class="wrap">
+  <div class="panel narrow">
+    <h1 style="font-size:2rem">Log in</h1>
+    <div id="msg" role="status" aria-live="polite"></div>
+    <form id="form" novalidate>
+      <div class="field"><label for="email">Email</label><input id="email" type="email" autocomplete="email" required></div>
+      <div class="field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" required></div>
+      <button class="btn btn-red" style="width:100%" type="submit" id="submit">Log in</button>
+    </form>
+    <p class="muted" style="margin-top:16px">New here? <a href="register.html">Create an account</a></p>
+  </div>
+</main>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script>initLogin();</script>
+</body>
+</html>
